@@ -89,15 +89,9 @@ button {
   right: 0em;
 }
 
+
 .register_link {
   color: #0669de;
-}
-
-@media (max-width: 380px) {
-  .google_text::before,
-  .google_text::after {
-    width: 22%;
-  }
 }
 
 @media (min-width: 600px) {
@@ -106,8 +100,6 @@ button {
     grid-template-columns: 1fr 0.25em 1fr;
     gap: 1em;
   }
-
-
 
   .login_img {
     background-image: url("../assets/premium.avif");
@@ -119,7 +111,7 @@ button {
     grid-column: 1/2;
   }
 
-  .login_form{
+  .login_form {
     grid-column: 3/4;
   }
 }
