@@ -49,8 +49,8 @@ button {
 
 .form_btn {
   border: 1px solid transparent;
-  color: white;
-  background: #0669de;
+  color: black;
+  background: #fb1;
 }
 
 .google_btn {
@@ -91,7 +91,9 @@ button {
 
 
 .register_link {
-  color: #0669de;
+  color: #fb1;
+  font-weight: 700;
+  
 }
 
 @media (min-width: 600px) {

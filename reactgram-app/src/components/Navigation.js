@@ -6,9 +6,8 @@ import { useUserContext } from "../contexts/UserContext";
 import { BsCameraFill } from "react-icons/bs";
 
 const Navigation = () => {
-  const { data, logout } = useUserContext();
+  const { data } = useUserContext();
 
-  console.log(data)
 
   return (
     <header className={styles.header}>

@@ -1,9 +1,12 @@
 import React from 'react'
+import {useParams} from 'react-router-dom'
 
 const PhotoPage = () => {
+  const params = useParams()
+  console.log(params)
   return (
     <div>
-      Photo
+      Photo {params.id}
     </div>
   )
 }

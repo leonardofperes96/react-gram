@@ -6,17 +6,11 @@ import {
 } from "react-router-dom";
 import { Footer, Navigation } from "./components/index";
 import { useUserContext } from "./contexts/UserContext";
-import {
-  Home,
-  Register,
-  Login,
-  UserPage,
-  ErrorPage,
-  PhotoPage,
-} from "./pages";
-
+import { Home, Register, Login, UserPage, ErrorPage, PhotoPage } from "./pages";
 const App = () => {
   const { data } = useUserContext();
+
+
 
   return (
     <Router>

@@ -9,6 +9,15 @@ import {
   onAuthStateChanged,
   updateProfile,
 } from "firebase/auth";
+import {
+  getFirestore,
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  query,
+  onSnapshot,
+} from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -34,6 +43,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+const db = getFirestore(app);
+
 const auth = getAuth();
 
 export {
@@ -43,4 +54,11 @@ export {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  db,
+  doc,
+  getDocs,
+  addDoc,
+  collection,
+  query,
+  onSnapshot,
 };

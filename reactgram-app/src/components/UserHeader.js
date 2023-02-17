@@ -37,7 +37,7 @@ const UserHeader = () => {
   return (
     <div className={styles.user_header}>
       <h2 className={styles.user_header_title}>
-        {title} {data.displayName}
+        {title}, @{data.displayName}
       </h2>
       <div className={styles.dropdown}>
         <button onClick={activeDropdown} className={styles.dropbtn}>

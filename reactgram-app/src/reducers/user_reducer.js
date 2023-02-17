@@ -16,6 +16,7 @@ const user_reducer = (state, action) => {
   }
 
   if (action.type === REGISTER_ERROR) {
+    state.error = null;
     return { ...state, error: action.payload, loading: false };
   }
 
@@ -40,6 +41,7 @@ const user_reducer = (state, action) => {
   }
 
   if (action.type === LOGIN_ERROR) {
+    state.error = null;
     return { ...state, error: action.payload, loading: false };
   }
 
