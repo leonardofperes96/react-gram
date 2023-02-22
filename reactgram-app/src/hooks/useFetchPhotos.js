@@ -30,7 +30,7 @@ export const useFetchPhotos = (docCollection) => {
       try {
         const collectionRef = collection(db, docCollection);
 
-        let photos = [];
+        let photos;
 
         const snapshot = await onSnapshot(collectionRef, (snapshot) => {
           photos = snapshot.docs.map((doc) => ({

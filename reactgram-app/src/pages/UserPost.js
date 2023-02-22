@@ -3,6 +3,7 @@ import styles from "./UserPost.module.css";
 
 import { useUserContext } from "../contexts/UserContext";
 import { useInsertPhotos } from "../hooks/useInsertPhotos";
+import { useNavigate } from "react-router-dom";
 
 const UserPost = () => {
   const [img, setImg] = useState("");
@@ -11,9 +12,10 @@ const UserPost = () => {
   const [formError, setFormError] = useState("");
   const { loading, error, insertDocument } = useInsertPhotos("photos");
   const { data } = useUserContext();
+  const navigate = useNavigate();
 
-  const userId = data.uid;
-  const username = data.displayName;
+  const userId =data &&  data.uid;
+  const username = data && data.displayName;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +36,6 @@ const UserPost = () => {
 
     if (!img || !hashtags || !body) {
       setFormError("Por favor, preencha todos os campos!");
-      return;
     }
 
     if (formError) return;
@@ -44,6 +45,8 @@ const UserPost = () => {
     setImg("");
     setHashtags("");
     setBody("");
+
+    navigate('/')
   };
 
   return (

@@ -1,0 +1,16 @@
+.comments{
+    display: none;
+    overflow: auto;
+}
+
+
+@media (min-width: 600px){
+    .comments{
+        display: block;
+       
+    }
+    .comments_container{
+        margin-bottom: 0.15em;
+        padding: 0;
+    }
+}

@@ -6,11 +6,17 @@ import {
 } from "react-router-dom";
 import { Footer, Navigation } from "./components/index";
 import { useUserContext } from "./contexts/UserContext";
-import { Home, Register, Login, UserPage, ErrorPage, PhotoPage } from "./pages";
+import {
+  Home,
+  Register,
+  Login,
+  UserPage,
+  ErrorPage,
+  PhotoPage,
+  EditPost,
+} from "./pages";
 const App = () => {
   const { data } = useUserContext();
-
-
 
   return (
     <Router>
@@ -27,6 +33,7 @@ const App = () => {
           element={data ? <UserPage /> : <Navigate to="/" />}
         />
         <Route path="photo/:id" element={<PhotoPage />} />
+        <Route path="edit-post/:id" element={<EditPost />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

@@ -26,7 +26,7 @@ const UserFeed = () => {
     <div className={styles.image_container}>
       {filterUserPosts &&
         filterUserPosts.map((post) => (
-          <div className={styles.hover_image_container}>
+          <div className={styles.hover_image_container} key={post.id}>
             <img src={post.image} alt={post.body} />
             <Link to={`/photo/${post.id}`} className={styles.link}>
               <BsFillChatFill className={styles.icon} />

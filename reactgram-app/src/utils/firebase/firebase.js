@@ -14,9 +14,10 @@ import {
   addDoc,
   collection,
   doc,
-  getDocs,
+  getDoc,
   query,
   onSnapshot,
+  updateDoc,
 } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -56,9 +57,10 @@ export {
   updateProfile,
   db,
   doc,
-  getDocs,
+  getDoc,
   addDoc,
   collection,
   query,
   onSnapshot,
+  updateDoc,
 };
