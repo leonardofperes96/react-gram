@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Comments from "../components/Comments";
-import PostComment from "../components/PostComment";
+import { Comments } from "../components/index";
 import { useUserContext } from "../contexts/UserContext";
-import { useFetchPhoto } from "../hooks/useFetchPhoto";
-import { useInsertPhotos } from "../hooks/useInsertPhotos";
+import { useFetchDocument } from "../hooks/useFetchDocument";
+import { useInsertDocument } from "../hooks/useInsertDocument";
 import styles from "./PhotoPage.module.css";
 
 const PhotoPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate()
-  const { document: posts } = useFetchPhoto("photos", id);
-  const { insertDocument } = useInsertPhotos("comments");
+  const navigate = useNavigate();
+  const { document: posts } = useFetchDocument("photos", id);
+  const { insertDocument } = useInsertDocument("comments");
   const { data, loading, error } = useUserContext();
   const [comment, setComment] = useState("");
   const username = data && data.displayName;
@@ -33,10 +32,10 @@ const PhotoPage = () => {
   };
 
   function handleOutsideClick(event) {
-    if(event.target === event.currentTarget) {
-      navigate((-1))
+    if (event.target === event.currentTarget) {
+      navigate(-1);
     }
-}
+  }
 
   return (
     <div className={styles.modal} onClick={handleOutsideClick}>
@@ -53,15 +52,18 @@ const PhotoPage = () => {
               <p>{posts.hashtags}</p>
             </div>
             <Comments id={id} />
+            {loading && <p>Loading...</p>}
+            {error && <p className="error">{error}</p>}
             <form onSubmit={handleInsertComment}>
-              {loading && <p>Loading</p>}
-              <input
-                className={styles.input}
-                placeholder="Poste um comentário"
-                type="text"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-              />
+              {data && (
+                <input
+                  className={styles.input}
+                  placeholder="Poste um comentário"
+                  type="text"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              )}
             </form>
           </div>
         </div>

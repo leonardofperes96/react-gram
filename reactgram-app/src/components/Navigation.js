@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navigation.module.css";
-import { links } from "../utils/helper/helper";
 import { useUserContext } from "../contexts/UserContext";
 import { BsCameraFill } from "react-icons/bs";
 

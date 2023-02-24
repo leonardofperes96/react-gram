@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [formError, setFormError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +20,14 @@ const Login = () => {
       email,
       password,
     };
+
+    if (password !== confirmPassword) {
+      setFormError("As senhas precisam ser iguais");
+    }
+
+    if (formError !== "") {
+      return;
+    }
 
     await register(data);
 
@@ -70,7 +79,8 @@ const Login = () => {
             ) : (
               <button className={styles.form_btn}>Entrar</button>
             )}
-            {registerError && <p className={styles.error}>{registerError}</p>}
+            {registerError && <p className="error">{registerError}</p>}
+            {formError && <p className="error">{formError}</p>}
           </form>
           <>
             <p className={styles.google_text}>ou entre com</p>

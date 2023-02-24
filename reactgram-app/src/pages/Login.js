@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import { BsGoogle } from "react-icons/bs";
 import { useUserContext } from "../contexts/UserContext";
+import { provider, signInWithPopup, auth } from "../utils/firebase/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -20,6 +21,10 @@ const Login = () => {
     await login(data);
     setEmail("");
     setPassword("");
+  };
+
+  const handleGoogleLogIn = async () => {
+    await signInWithPopup(auth, provider);
   };
 
   return (
@@ -49,11 +54,11 @@ const Login = () => {
             ) : (
               <button className={styles.form_btn}>Entrar</button>
             )}
-            {loginError && <p className={styles.error}>{loginError}</p>}
+            {loginError && <p className="error">{loginError}</p>}
           </form>
           <>
             <p className={styles.google_text}>ou</p>
-            <button className={styles.google_btn}>
+            <button onClick={handleGoogleLogIn} className={styles.google_btn}>
               <BsGoogle /> Google
             </button>
           </>

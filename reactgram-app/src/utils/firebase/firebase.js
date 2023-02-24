@@ -8,6 +8,8 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import {
   getFirestore,
@@ -18,6 +20,7 @@ import {
   query,
   onSnapshot,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -48,6 +51,8 @@ const db = getFirestore(app);
 
 const auth = getAuth();
 
+const provider = new GoogleAuthProvider();
+
 export {
   auth,
   createUserWithEmailAndPassword,
@@ -63,4 +68,7 @@ export {
   query,
   onSnapshot,
   updateDoc,
+  deleteDoc,
+  provider,
+  signInWithPopup,
 };

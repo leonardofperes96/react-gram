@@ -1,25 +1,15 @@
-.comments {
-  display: none;
-}
-
-.comment_paragraph{
+.comment_paragraph {
   display: flex;
   align-items: center;
 }
 
-.icon{
+.icon {
   font-size: 1.25rem;
   color: #8e8e8e;
   margin-left: 0.5em;
 }
 
 @media (min-width: 600px) {
-  .comments {
-    display: block;
-    height: 70vh;
-    overflow-y: scroll;
-    scrollbar-color: black;
-  }
   .comments_container {
     margin-bottom: 0.15em;
     padding: 0;
@@ -32,5 +22,4 @@
     background: #fb1;
     border-radius: 10px;
   }
-
 }

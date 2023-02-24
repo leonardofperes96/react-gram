@@ -10,35 +10,59 @@
   display: block;
   object-fit: cover;
 }
-
 .hover_image_container {
   position: relative;
   transition: 0.2s;
 }
 
-.link {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  transition: 0.2s;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.icon {
-  font-size: 3rem;
-  color: white;
-}
-
 .hover_image_container:hover img {
   opacity: 0.5;
 }
-.hover_image_container:hover .link {
+.hover_image_container:hover .links {
   opacity: 1;
+}
+
+.links {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  transition: 0.2s;
+  opacity: 0;
+}
+
+.icon{
+  color: white;
+  font-size: 2rem;
+}
+.link{
+  padding: 0.15em;
+}
+
+@media (min-width: 600px) {
+  .icon {
+    font-size: 3rem;
+    color: white;
+  }
+
+  .icon:hover {
+    color: #fb1;
+  }
+
+  .links div {
+    margin-right: 0.3em;
+    cursor: pointer;
+  }
+  .links {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    transition: 0.2s;
+    opacity: 0;
+  }
 }

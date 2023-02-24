@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useFetchPhoto } from "../hooks/useFetchPhoto";
+import { useFetchDocument } from "../hooks/useFetchDocument";
 import styles from "./EditPost.module.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { useUpdatePhoto } from "../hooks/useUpdatePhoto";
+import { useUpdateDocument } from "../hooks/useUpdateDocument";
 
 const EditPost = () => {
   const { id } = useParams();
-  const { document: post } = useFetchPhoto("photos", id);
+  const { document: post } = useFetchDocument("photos", id);
   const [img, setImg] = useState("");
   const [hashtags, setHashtags] = useState("");
-  const [formError, setFormError] = useState('')
+  const [formError, setFormError] = useState("");
   const [body, setBody] = useState("");
-  const { updatePhoto } = useUpdatePhoto("photos");
+  const { updatePhoto, loading, error } = useUpdateDocument("photos");
   const navigate = useNavigate();
-
-  console.log(post);
 
   useEffect(() => {
     if (post) {
@@ -33,7 +31,6 @@ const EditPost = () => {
       setFormError("A imagem precisa ser uma URL.");
     }
 
-
     const data = {
       image: img,
       body,
@@ -48,7 +45,7 @@ const EditPost = () => {
 
     updatePhoto(id, data);
 
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -71,14 +68,20 @@ const EditPost = () => {
               placeholder="Insira suas novas tags"
               onChange={(e) => setHashtags(e.target.value)}
             />
-            <label htmlFor="">Url da imagem: {post.image}</label>
+            <label htmlFor="">Url da imagem</label>
             <input
               type="text"
               value={img || ""}
               placeholder="Insira sua nova imagem"
               onChange={(e) => setImg(e.target.value)}
             />
-            <button>Editar</button>
+            {loading ? (
+              <button>Carregando....</button>
+            ) : (
+              <button>Enviar</button>
+            )}
+            {error && <p className='error'>{error}</p>}
+            {formError && <p>{formError}</p>}
           </>
         )}
       </form>

@@ -37,10 +37,10 @@
 
 .input {
   background: none;
-  border: none;
-  border-top: 0.5px solid #dbdbdb;
   width: 100%;
   padding: 0.75em;
+  border: none;
+  border-top: 1px solid #dbdbdb;
 }
 
 .input:focus {
@@ -55,15 +55,13 @@
   .modal_mobile_user {
     display: none;
   }
-  .modal_body div {
-    position: relative;
-  }
   .modal_computer_user {
     display: block;
   }
   .modal_body h3 {
     margin: 0;
   }
+
 }
 
 @media (min-width: 600px) and (max-width: 1000px) {

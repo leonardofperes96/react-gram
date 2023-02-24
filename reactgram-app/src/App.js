@@ -18,6 +18,7 @@ import {
 const App = () => {
   const { data } = useUserContext();
 
+
   return (
     <Router>
       <Navigation />

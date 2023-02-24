@@ -35,9 +35,15 @@
   width: 70%;
   margin-bottom: 1em;
   padding: 0.75em 1em;
-  background: #fafafa;
+  background: #dbdbdb;
   border: 1px solid #dbdbdb;
   border-radius: 5px;
+  outline: #fb1;
+}
+
+.form input:focus {
+  border: 1px solid #fb1;
+  background: white;
 }
 
 button {

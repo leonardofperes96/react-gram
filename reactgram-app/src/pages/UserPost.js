@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./UserPost.module.css";
 
 import { useUserContext } from "../contexts/UserContext";
-import { useInsertPhotos } from "../hooks/useInsertPhotos";
+import { useInsertDocument } from "../hooks/useInsertDocument";
 import { useNavigate } from "react-router-dom";
 
 const UserPost = () => {
@@ -10,11 +10,11 @@ const UserPost = () => {
   const [hashtags, setHashtags] = useState("");
   const [body, setBody] = useState("");
   const [formError, setFormError] = useState("");
-  const { loading, error, insertDocument } = useInsertPhotos("photos");
+  const { loading, error, insertDocument } = useInsertDocument("photos");
   const { data } = useUserContext();
   const navigate = useNavigate();
 
-  const userId =data &&  data.uid;
+  const userId = data && data.uid;
   const username = data && data.displayName;
 
   const handleSubmit = async (e) => {
@@ -46,7 +46,7 @@ const UserPost = () => {
     setHashtags("");
     setBody("");
 
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -72,8 +72,8 @@ const UserPost = () => {
         />
         {loading && <button disabled>Loading...</button>}
         {!loading && <button>Postar</button>}
-        {error && <p>{error}</p>}
-        {formError && <p>{formError}</p>}
+        {error && <p className="error">{error}</p>}
+        {formError && <p className="error">{formError}</p>}
       </form>
     </div>
   );
